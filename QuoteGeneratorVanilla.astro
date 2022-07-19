@@ -1,0 +1,57 @@
+---
+const response = await fetch('https://api.kanye.rest/')
+const data = await response.json()
+const quote = data.quote
+
+---
+
+<main>
+    <h1><span class="text-gradient">kanye</span> Quotes</h1>
+    <div id="quote">
+        {quote}
+    </div>
+    <button id="btn" onclick="window.location.reload()">Refresh</button>
+</main>
+<style>
+    :root {
+        --astro-gradient: linear-gradient(0deg, #4f39fa, #da62c4);
+    }
+
+    h1 {
+        margin: 2rem 0;
+        text-align: center;
+    }
+
+    main {
+        margin: auto;
+        padding: 1em;
+        max-width: 60ch;
+    }
+
+    .text-gradient {
+        font-weight: 900;
+        background-image: var(--astro-gradient);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-size: 100% 200%;
+        background-position-y: 100%;
+        border-radius: 0.4rem;
+        animation: pulse 4s ease-in-out infinite;
+    }
+
+    #quote {
+        font-size: larger;
+        padding: 10px 0px;
+        margin: 10px;
+        text-align: center;
+    }
+
+    #btn {
+        background-image: var(--astro-gradient);
+        color: white;
+        font-weight: 800;
+        font-size: large;
+        padding: 15px 20px;
+        cursor: pointer;
+    }
+</style>
