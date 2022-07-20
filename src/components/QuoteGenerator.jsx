@@ -1,6 +1,5 @@
 import React from "react";
-import Button from "./react/Button";
-import Quote from "./react/Quote";
+import "../style/style.css"
 
 const QuoteGenerator = (props) => {
   const [loading, setLoading] = React.useState(false);
@@ -22,10 +21,12 @@ const QuoteGenerator = (props) => {
   };
 
   return (
-    <>
-      <Quote loading={loading} quote={quote} />
-      <Button onClick={getQuote}>Refresh</Button>
-    </>
+    <React.Fragment>
+      <div className="quote">
+        {loading ? <span>Loading....</span> : <span>{quote}</span>}
+      </div>
+      <button className="refresh-button" onClick={getQuote}>Refresh</button>
+    </React.Fragment>
   );
 };
 
